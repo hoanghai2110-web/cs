@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block title %}Sitemap - SMS Receiver Sandbox{% endblock %}
+
+{% block content %}
+<div class="text-center mb-12">
+    <h1 class="text-4xl font-light text-slate-900 mb-4">Site Map</h1>
+    <p class="text-slate-600 max-w-2xl mx-auto">Complete navigation structure for the SMS Receiver platform</p>
+</div>
+
+<div class="max-w-5xl mx-auto">
+    <div class="space-y-8">
+        <!-- Homepage -->
+        <div class="bg-white border border-slate-200 rounded-xl p-6">
+            <h2 class="text-xl font-light text-slate-900 mb-4">Homepage</h2>
+            <div>
+                <a href="{{ url_for('index') }}" class="text-slate-600 hover:text-slate-900 transition-colors">
+                    SMS Receiver - Global Virtual Numbers
+                </a>
+            </div>
+        </div>
+        
+        <!-- Country Pages -->
+        <div class="bg-white border border-slate-200 rounded-xl p-6">
+            <h2 class="text-xl font-light text-slate-900 mb-6">Country Pages</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                {% for country in countries %}
+                <a href="{{ url_for('country', country_code=country.code) }}" 
+                   class="flex items-center space-x-3 p-3 rounded-lg border border-slate-200 hover:border-slate-300 transition-colors group">
+                    <span class="text-lg">{{ country.flag }}</span>
+                    <div class="flex-1 min-w-0">
+                        <div class="font-medium text-slate-900 truncate">{{ country.name }}</div>
+                        <div class="text-xs text-slate-500 uppercase font-medium">{{ country.code }}</div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+        
+        <!-- Support Pages -->
+        <div class="bg-white border border-slate-200 rounded-xl p-6">
+            <h2 class="text-xl font-light text-slate-900 mb-6">Support Pages</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <a href="{{ url_for('about') }}" 
+                   class="flex items-center space-x-3 p-3 rounded-lg border border-slate-200 hover:border-slate-300 transition-colors">
+                    <div class="w-8 h-8 bg-slate-100 rounded-lg flex items-center justify-center">
+                        <span class="text-slate-600">ℹ️</span>
+                    </div>
+                    <div>
+                        <div class="font-medium text-slate-900">About Platform</div>
+                        <div class="text-xs text-slate-500">Learn about our service</div>
+                    </div>
+                </a>
+                
+                <a href="{{ url_for('help') }}" 
+                   class="flex items-center space-x-3 p-3 rounded-lg border border-slate-200 hover:border-slate-300 transition-colors">
+                    <div class="w-8 h-8 bg-slate-100 rounded-lg flex items-center justify-center">
+                        <span class="text-slate-600">❓</span>
+                    </div>
+                    <div>
+                        <div class="font-medium text-slate-900">Help & FAQ</div>
+                        <div class="text-xs text-slate-500">Get support and answers</div>
+                    </div>
+                </a>
+                
+                <a href="{{ url_for('privacy') }}" 
+                   class="flex items-center space-x-3 p-3 rounded-lg border border-slate-200 hover:border-slate-300 transition-colors">
+                    <div class="w-8 h-8 bg-slate-100 rounded-lg flex items-center justify-center">
+                        <span class="text-slate-600">🔒</span>
+                    </div>
+                    <div>
+                        <div class="font-medium text-slate-900">Privacy Policy</div>
+                        <div class="text-xs text-slate-500">Data protection information</div>
+                    </div>
+                </a>
+                
+                <a href="{{ url_for('terms') }}" 
+                   class="flex items-center space-x-3 p-3 rounded-lg border border-slate-200 hover:border-slate-300 transition-colors">
+                    <div class="w-8 h-8 bg-slate-100 rounded-lg flex items-center justify-center">
+                        <span class="text-slate-600">📄</span>
+                    </div>
+                    <div>
+                        <div class="font-medium text-slate-900">Terms of Service</div>
+                        <div class="text-xs text-slate-500">Usage guidelines</div>
+                    </div>
+                </a>
+                
+                <a href="{{ url_for('sitemap') }}" 
+                   class="flex items-center space-x-3 p-3 rounded-lg border border-slate-200 hover:border-slate-300 transition-colors">
+                    <div class="w-8 h-8 bg-slate-100 rounded-lg flex items-center justify-center">
+                        <span class="text-slate-600">🗺️</span>
+                    </div>
+                    <div>
+                        <div class="font-medium text-slate-900">Site Map</div>
+                        <div class="text-xs text-slate-500">Navigation overview</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="mt-12 text-center">
+        <div class="bg-slate-100 border border-slate-200 rounded-xl p-6 max-w-3xl mx-auto">
+            <p class="text-sm text-slate-700 leading-relaxed">
+                This sitemap provides access to all platform sections. Each country page contains multiple virtual phone numbers with generated SMS message inboxes for testing and development purposes.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

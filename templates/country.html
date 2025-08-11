@@ -1,0 +1,162 @@
+{% extends "base.html" %}
+
+{% block title %}{{ country.name }} SMS Numbers | {{ country.code }} Virtual{% endblock %}
+
+{% block description %}{{ country.seo_description[:150] }}{% if country.seo_description|length > 150 %}...{% endif %}{% endblock %}
+
+{% block keywords %}{{ country.keywords|join(', ') }}, {{ country.name }} {{ country.timezone }}, {{ country.region }} SMS service, {{ country.content_focus }}, virtual phone {{ country.name }}, SMS verification {{ country.code }}{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "{{ country.name }} Virtual Phone Numbers",
+  "description": "Virtual phone numbers from {{ country.name }} for SMS verification and testing",
+  "url": "{{ request.url }}",
+  "mainEntity": {
+    "@type": "Service",
+    "name": "{{ country.name }} SMS Receiver",
+    "description": "Free virtual phone numbers from {{ country.name }} for receiving SMS messages",
+    "provider": {
+      "@type": "Organization",
+      "name": "SMS Receiver Platform"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "{{ country.name }}"
+    }
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<style>
+/* Simple inline styles */
+.country-container { max-width: 80rem; margin: 0 auto; padding: 0 0.05rem; }
+@media (min-width: 640px) { .country-container { padding: 0 0.1rem; } }
+@media (min-width: 1024px) { .country-container { padding: 0 0.15rem; } }
+.breadcrumb { margin-bottom: 1rem; }
+.breadcrumb a { color: #475569; text-decoration: none; margin: 0 0.25rem; font-weight: 500; }
+.breadcrumb a:hover { color: #2563eb; }
+.breadcrumb span { color: #94a3b8; margin: 0 0.25rem; }
+.country-header { background: white; border-radius: 12px; padding: 1rem; margin-bottom: 2rem; text-align: center; border: 1px solid #e2e8f0; }
+.country-flag { width: 80px; height: 80px; background: linear-gradient(135deg, #f8fafc, #f1f5f9); border-radius: 15px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px auto; }
+.country-flag span { font-size: 48px; }
+.country-title { font-size: 36px; font-weight: 700; color: #0f172a; margin: 0 0 10px 0; }
+.country-desc { color: #475569; font-size: 18px; margin: 0; }
+.numbers-section { margin-bottom: 2rem; }
+.section-title { font-size: 24px; font-weight: 700; color: #0f172a; text-align: center; margin-bottom: 15px; }
+.section-desc { color: #475569; text-align: center; margin: 0 auto 30px auto; max-width: 600px; }
+.numbers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+@media (min-width: 768px) { .numbers-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; } }
+@media (min-width: 1024px) { .numbers-grid { grid-template-columns: repeat(3, 1fr); } }
+.number-card { background: white; border-radius: 12px; padding: 1rem; border: 1px solid #e2e8f0; transition: all 0.3s ease; }
+.number-card:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-color: #e2e8f0; }
+.number-flag { width: 64px; height: 64px; background: linear-gradient(135deg, #f8fafc, #f1f5f9); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px auto; }
+.number-flag span { font-size: 32px; }
+.number-text { font-size: 20px; font-weight: 600; color: #0f172a; margin: 0 0 5px 0; text-align: center; }
+.number-country { color: #475569; font-weight: 500; font-size: 14px; text-align: center; margin-bottom: 20px; }
+.open-btn { display: inline-block; width: 100%; background: #0f172a; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; text-align: center; transition: all 0.3s ease; }
+.open-btn:hover { background: #1e293b; }
+.info-section { background: white; border-radius: 12px; padding: 1rem; max-width: 56rem; margin: 0 auto; border: 1px solid #e2e8f0; }
+.info-title { font-size: 24px; font-weight: 700; color: #0f172a; text-align: center; margin-bottom: 25px; }
+.info-text { color: #475569; line-height: 1.6; margin-bottom: 20px; }
+.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin: 30px 0; }
+.feature-box { background: #f8fafc; border-radius: 12px; padding: 25px; }
+.feature-title { font-size: 18px; font-weight: 600; color: #0f172a; margin-bottom: 15px; }
+.feature-list { list-style: none; padding: 0; margin: 0; }
+.feature-list li { color: #475569; margin-bottom: 8px; display: flex; align-items: center; }
+.feature-list li:before { content: "✓"; color: #10b981; font-weight: bold; margin-right: 8px; }
+.use-cases { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 20px; }
+.use-case { background: #dbeafe; color: #1e40af; padding: 8px 16px; border-radius: 25px; font-size: 14px; font-weight: 500; }
+</style>
+
+<!-- Breadcrumbs -->
+<div class="country-container">
+    <nav class="breadcrumb">
+        <a href="{{ url_for('index') }}">
+            <svg style="width: 16px; height: 16px; margin-right: 8px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            </svg>
+            Back to all countries
+        </a>
+    </nav>
+
+    <!-- Country Header -->
+    <div class="country-header">
+        <div class="country-flag">
+            <span>{{ country.flag }}</span>
+        </div>
+        <h1 class="country-title">{{ country.name }} Virtual Phone Numbers</h1>
+        <p class="country-desc">
+            Premium {{ country.name }} virtual phone numbers for instant SMS verification. 
+            Reliable {{ country.name }} numbers for secure account registration and testing.
+        </p>
+        
+        <div class="use-cases">
+            {% for use_case in country.use_cases %}
+            <span class="use-case">{{ use_case.title() }}</span>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Phone Numbers -->
+    <div class="numbers-section">
+        <h2 class="section-title">Available {{ country.name }} Numbers</h2>
+        <p class="section-desc">
+            Select any {{ country.name }} virtual number below to view received SMS messages. Perfect for testing {{ country.content_focus }} workflows.
+        </p>
+        
+        <div class="numbers-grid">
+            {% for number_data in phone_numbers %}
+            {% if number_data.status == 'live' %}
+            <div class="number-card">
+                <div class="number-flag">
+                    <span>{{ country.flag }}</span>
+                </div>
+                <div class="number-text">{{ number_data.number }}</div>
+                <div class="number-country">{{ country.name }}</div>
+                <a href="{{ url_for('inbox', country_code=country.code, phone_number=number_data.number.replace('+', '')) }}" 
+                   class="open-btn">Open</a>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- SEO Content -->
+    <div class="info-section">
+        <h2 class="info-title">Why Choose {{ country.name }} Virtual Numbers?</h2>
+        <p class="info-text">
+            Our {{ country.name }} virtual phone numbers are specifically optimized for {{ country.content_focus }} across the {{ country.region }} region. 
+            Operating in the {{ country.timezone }} timezone, these numbers provide reliable SMS reception for developers and businesses.
+        </p>
+        
+        <div class="features-grid">
+            <div class="feature-box">
+                <h3 class="feature-title">Key Features</h3>
+                <ul class="feature-list">
+                    <li>Instant {{ country.code }} number access</li>
+                    <li>{{ country.region }} timezone support</li>
+                    <li>Optimized for {{ country.content_focus }}</li>
+                </ul>
+            </div>
+            <div class="feature-box">
+                <h3 class="feature-title">Perfect For</h3>
+                <ul class="feature-list">
+                    {% for use_case in country.use_cases %}
+                    <li>{{ use_case.title() }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        
+        <p class="info-text">
+            These virtual numbers are ideal for testing SMS verification workflows, OTP authentication systems, and multi-factor authentication processes. 
+            All messages are generated for demonstration purposes and update regularly to simulate real-world SMS traffic patterns.
+        </p>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% set refresh = true %}
+
+{% block title %}SMS Inbox +{{ phone_number }} ({{ country.name }}) - SMS Receiver{% endblock %}
+
+{% block description %}View demo SMS messages received on virtual number +{{ phone_number }} from {{ country.name }}.{% endblock %}
+
+{% block content %}
+<style>
+/* Inline CSS for inbox page */
+.inbox-container { max-width: 80rem; margin: 0 auto; padding: 0 0.05rem; }
+@media (min-width: 640px) { .inbox-container { padding: 0 0.1rem; } }
+@media (min-width: 1024px) { .inbox-container { padding: 0 0.15rem; } }
+
+.breadcrumb { margin-bottom: 1rem; }
+.breadcrumb a { color: #475569; text-decoration: none; margin: 0 0.25rem; font-weight: 500; }
+.breadcrumb a:hover { color: #2563eb; }
+.breadcrumb span { color: #94a3b8; margin: 0 0.25rem; }
+.breadcrumb .current { color: #0f172a; font-weight: 600; font-family: monospace; }
+
+.messages-header { background: white; border-radius: 12px; padding: 1rem; margin-bottom: 1rem; text-align: center; border: 1px solid #e2e8f0; }
+.messages-title { font-size: 24px; font-weight: 600; color: #0f172a; margin: 0 0 0.5rem 0; }
+.messages-count { color: #475569; font-size: 14px; margin: 0; }
+
+.messages-list { display: flex; flex-direction: column; gap: 1rem; max-width: 56rem; margin: 0 auto; }
+
+.message-card { background: white; border-radius: 12px; padding: 1rem; border: 1px solid #e2e8f0; }
+.message-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
+.message-icon { width: 48px; height: 48px; background: #0f172a; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 18px; flex-shrink: 0; }
+.message-info { flex: 1; }
+.message-sender { font-weight: 600; color: #0f172a; margin: 0 0 0.25rem 0; }
+.message-meta { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.message-date { color: #475569; font-size: 14px; }
+.message-type { background: #f1f5f9; color: #475569; padding: 0.25rem 0.5rem; border-radius: 6px; font-size: 12px; font-weight: 500; }
+
+.message-content { background: #f8fafc; border-radius: 8px; padding: 1rem; border-left: 4px solid #0f172a; margin: 0.75rem 0; }
+.message-text { color: #0f172a; line-height: 1.5; margin: 0; }
+
+.message-tip { margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid #e2e8f0; display: flex; align-items: center; gap: 0.5rem; }
+.tip-icon { width: 16px; height: 16px; background: #e2e8f0; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #475569; font-size: 12px; flex-shrink: 0; }
+.tip-text { color: #475569; font-size: 12px; }
+</style>
+
+<div class="inbox-container">
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="{{ url_for('index') }}">Countries</a>
+        <span>/</span>
+        <a href="{{ url_for('country', country_code=country.code) }}">{{ country.name }}</a>
+        <span>/</span>
+        <span class="current">+{{ phone_number }}</span>
+    </div>
+
+    <!-- Header -->
+    <div class="messages-header">
+        <h1 class="messages-title">Recent Messages</h1>
+        <p class="messages-count">{{ messages|length }} messages received</p>
+    </div>
+
+    <!-- Messages List -->
+    <div class="messages-list">
+        {% for message in messages %}
+        <div class="message-card">
+            <div class="message-header">
+                <div class="message-icon">{{ message.sender[0] }}</div>
+                <div class="message-info">
+                    <div class="message-sender">{{ message.sender }}</div>
+                    <div class="message-meta">
+                        <div class="message-date">{{ message.date }} • {{ message.time }}</div>
+                        <div class="message-type">SMS</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="message-content">
+                <p class="message-text">{{ message.message }}</p>
+            </div>
+            
+            {% if message.message|regex_search('[0-9]{6}') %}
+            <div class="message-tip">
+                <div class="tip-icon">i</div>
+                <div class="tip-text">Click message to select and copy verification code</div>
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

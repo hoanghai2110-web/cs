@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+
+{% block title %}Help & FAQ - SMS Receiver Support{% endblock %}
+
+{% block description %}Get help using SMS Receiver platform. FAQ about virtual phone numbers and demo SMS messages for testing.{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Are these real phone numbers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, all phone numbers are generated algorithmically for demonstration purposes. They do not connect to real telecommunications networks and cannot receive actual SMS messages."
+      }
+    },
+    {
+      "@type": "Question", 
+      "name": "How often do numbers change?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Numbers and messages refresh daily using deterministic algorithms. This ensures you get fresh content while maintaining consistency for testing purposes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I copy verification codes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Click directly on any message text to select it, then use Ctrl+C (or Cmd+C on Mac) to copy. The message content will be highlighted when selected."
+      }
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-16">
+        <h1 class="text-4xl font-light text-slate-900 mb-6">Help & FAQ</h1>
+        <p class="text-xl text-slate-600 leading-relaxed">
+            Everything you need to know about using the SMS Receiver platform
+        </p>
+    </div>
+
+    <!-- Quick Start -->
+    <div class="bg-slate-100 border border-slate-200 rounded-xl p-8 mb-12">
+        <h2 class="text-2xl font-light text-slate-900 mb-6">Quick Start Guide</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="text-center">
+                <div class="w-12 h-12 bg-slate-900 text-white rounded-xl flex items-center justify-center mx-auto mb-4 text-lg font-semibold">1</div>
+                <h3 class="font-semibold text-slate-900 mb-2">Select Country</h3>
+                <p class="text-sm text-slate-600">Browse the homepage and click on any country to view available virtual numbers</p>
+            </div>
+            <div class="text-center">
+                <div class="w-12 h-12 bg-slate-900 text-white rounded-xl flex items-center justify-center mx-auto mb-4 text-lg font-semibold">2</div>
+                <h3 class="font-semibold text-slate-900 mb-2">Choose Number</h3>
+                <p class="text-sm text-slate-600">Pick any virtual phone number from the list to access its inbox</p>
+            </div>
+            <div class="text-center">
+                <div class="w-12 h-12 bg-slate-900 text-white rounded-xl flex items-center justify-center mx-auto mb-4 text-lg font-semibold">3</div>
+                <h3 class="font-semibold text-slate-900 mb-2">View Messages</h3>
+                <p class="text-sm text-slate-600">Browse demo SMS messages and copy verification codes for testing</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="space-y-8">
+        <h2 class="text-3xl font-light text-slate-900 text-center mb-8">Frequently Asked Questions</h2>
+
+        <!-- General Questions -->
+        <div class="bg-white border border-slate-200 rounded-xl p-8">
+            <h3 class="text-xl font-light text-slate-900 mb-6">General Questions</h3>
+            <div class="space-y-6">
+                <div>
+                    <h4 class="font-semibold text-slate-900 mb-2">Are these real phone numbers?</h4>
+                    <p class="text-slate-600 leading-relaxed">No, all phone numbers are generated algorithmically for demonstration purposes. They do not connect to real telecommunications networks and cannot receive actual SMS messages.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-slate-900 mb-2">How often do numbers change?</h4>
+                    <p class="text-slate-600 leading-relaxed">Numbers and messages refresh daily using deterministic algorithms. This ensures you get fresh content while maintaining consistency for testing purposes.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-slate-900 mb-2">Can I use this for production applications?</h4>
+                    <p class="text-slate-600 leading-relaxed">This platform is designed for testing and development only. Do not use these numbers in production environments or for any real telecommunications purposes.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Questions -->
+        <div class="bg-white border border-slate-200 rounded-xl p-8">
+            <h3 class="text-xl font-light text-slate-900 mb-6">Technical Questions</h3>
+            <div class="space-y-6">
+                <div>
+                    <h4 class="font-semibold text-slate-900 mb-2">How are the messages generated?</h4>
+                    <p class="text-slate-600 leading-relaxed">Messages are created using professional templates covering common scenarios like OTP codes, banking alerts, and delivery notifications. Each message includes realistic sender names and timestamps.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-slate-900 mb-2">Why do pages auto-refresh?</h4>
+                    <p class="text-slate-600 leading-relaxed">The inbox pages refresh every 30 seconds to simulate real-time message delivery, providing a more realistic testing experience for developers.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-slate-900 mb-2">Can I integrate this with my application?</h4>
+                    <p class="text-slate-600 leading-relaxed">This is a demonstration platform for manual testing. For programmatic access, you would need to build your own API endpoints or use dedicated SMS testing services.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Usage Questions -->
+        <div class="bg-white border border-slate-200 rounded-xl p-8">
+            <h3 class="text-xl font-light text-slate-900 mb-6">Usage Questions</h3>
+            <div class="space-y-6">
+                <div>
+                    <h4 class="font-semibold text-slate-900 mb-2">How do I copy verification codes?</h4>
+                    <p class="text-slate-600 leading-relaxed">Click directly on any message text to select it, then use Ctrl+C (or Cmd+C on Mac) to copy. The message content will be highlighted when selected.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-slate-900 mb-2">Which countries are supported?</h4>
+                    <p class="text-slate-600 leading-relaxed">We support over 100 countries with authentic phone number formatting. Each country page shows 10 virtual numbers with unique message inboxes.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-slate-900 mb-2">Is there a mobile app?</h4>
+                    <p class="text-slate-600 leading-relaxed">No mobile app is required. The platform is fully responsive and works seamlessly on all devices through any modern web browser.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Troubleshooting -->
+        <div class="bg-white border border-slate-200 rounded-xl p-8">
+            <h3 class="text-xl font-light text-slate-900 mb-6">Troubleshooting</h3>
+            <div class="space-y-6">
+                <div>
+                    <h4 class="font-semibold text-slate-900 mb-2">Page not loading properly?</h4>
+                    <p class="text-slate-600 leading-relaxed">Try refreshing the page or clearing your browser cache. Ensure JavaScript is enabled for the mobile menu to function properly.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-slate-900 mb-2">Numbers showing incorrectly?</h4>
+                    <p class="text-slate-600 leading-relaxed">Phone number formatting is based on international standards for each country. If numbers appear unusual, this may be due to different regional formatting conventions.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-slate-900 mb-2">Messages not displaying?</h4>
+                    <p class="text-slate-600 leading-relaxed">Each virtual number has 15 generated messages. If no messages appear, try selecting a different number or refreshing the page.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="bg-slate-100 border border-slate-200 rounded-xl p-8 text-center">
+            <h3 class="text-xl font-light text-slate-900 mb-4">Need More Help?</h3>
+            <p class="text-slate-600 mb-6 leading-relaxed">
+                This platform is provided as a demonstration tool. For additional features or custom implementations, consider building your own SMS testing infrastructure.
+            </p>
+            <a href="{{ url_for('about') }}" class="inline-flex items-center space-x-2 bg-slate-900 text-white px-6 py-3 rounded-lg hover:bg-slate-800 transition-colors">
+                <span>Learn More About Platform</span>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

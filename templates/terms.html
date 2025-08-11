@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+
+{% block title %}Terms of Service - SMS Receiver Platform{% endblock %}
+
+{% block description %}Terms of service for the SMS Receiver platform. Understand the usage guidelines and limitations for our virtual phone number testing environment.{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-12">
+        <h1 class="text-4xl font-light text-slate-900 mb-4">Terms of Service</h1>
+        <p class="text-slate-600">Last updated: {{ current_year }}</p>
+    </div>
+
+    <!-- Content -->
+    <div class="space-y-8">
+        <!-- Overview -->
+        <div class="bg-slate-100 border border-slate-200 rounded-xl p-8">
+            <h2 class="text-2xl font-light text-slate-900 mb-4">Service Overview</h2>
+            <p class="text-slate-700 leading-relaxed">
+                SMS Receiver is a demonstration platform providing virtual phone numbers and generated SMS messages 
+                for testing and educational purposes. By using this service, you agree to these terms.
+            </p>
+        </div>
+
+        <!-- Acceptable Use -->
+        <div class="bg-white border border-slate-200 rounded-xl p-8">
+            <h2 class="text-2xl font-light text-slate-900 mb-6">Acceptable Use</h2>
+            <div class="space-y-6">
+                <div>
+                    <h3 class="font-semibold text-slate-900 mb-3">Permitted Uses</h3>
+                    <ul class="text-slate-600 space-y-2 leading-relaxed">
+                        <li>• Software development and testing purposes</li>
+                        <li>• Educational learning about SMS systems</li>
+                        <li>• Quality assurance and application testing</li>
+                        <li>• Demonstration of SMS functionality concepts</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-slate-900 mb-3">Prohibited Uses</h3>
+                    <ul class="text-slate-600 space-y-2 leading-relaxed">
+                        <li>• Using numbers for real communication attempts</li>
+                        <li>• Production or commercial applications</li>
+                        <li>• Attempting to connect to real telecommunications networks</li>
+                        <li>• Claiming ownership of generated phone numbers</li>
+                        <li>• Reverse engineering the generation algorithms</li>
+                        <li>• Automated scraping or bulk data extraction</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service Limitations -->
+        <div class="bg-white border border-slate-200 rounded-xl p-8">
+            <h2 class="text-2xl font-light text-slate-900 mb-6">Service Limitations</h2>
+            <div class="space-y-4 text-slate-600 leading-relaxed">
+                <h3 class="font-semibold text-slate-900 mb-3">Platform Constraints</h3>
+                <ul class="space-y-2">
+                    <li>• All phone numbers are algorithmically generated and fictional</li>
+                    <li>• No actual SMS messages can be sent or received</li>
+                    <li>• Content refreshes daily and is not persistent</li>
+                    <li>• No API access or programmatic integration available</li>
+                    <li>• Service availability is not guaranteed</li>
+                    <li>• No customer support for individual usage issues</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Intellectual Property -->
+        <div class="bg-white border border-slate-200 rounded-xl p-8">
+            <h2 class="text-2xl font-light text-slate-900 mb-6">Intellectual Property</h2>
+            <div class="space-y-4 text-slate-600 leading-relaxed">
+                <div>
+                    <h3 class="font-semibold text-slate-900 mb-3">Platform Ownership</h3>
+                    <p>The SMS Receiver platform, including its design, code, algorithms, and generated content, is provided for demonstration purposes. Users may not claim ownership of any generated data.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-slate-900 mb-3">Generated Content</h3>
+                    <p>All phone numbers, SMS messages, and associated data are fictional and generated for testing purposes. They do not represent real entities or communications.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Disclaimers -->
+        <div class="bg-white border border-slate-200 rounded-xl p-8">
+            <h2 class="text-2xl font-light text-slate-900 mb-6">Disclaimers</h2>
+            <div class="space-y-6">
+                <div>
+                    <h3 class="font-semibold text-slate-900 mb-3">Service Availability</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        The service is provided "as is" without warranties of uptime, availability, or functionality. 
+                        We reserve the right to modify or discontinue the service at any time.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-slate-900 mb-3">No Real Telecommunications</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        This platform operates independently of real telecommunications infrastructure. 
+                        No actual phone services, SMS gateways, or carrier networks are involved.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-slate-900 mb-3">Educational Purpose</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        Content is designed for educational and testing purposes only. Do not rely on this platform 
+                        for any production applications or real-world communications.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Limitation of Liability -->
+        <div class="bg-white border border-slate-200 rounded-xl p-8">
+            <h2 class="text-2xl font-light text-slate-900 mb-6">Limitation of Liability</h2>
+            <div class="text-slate-600 leading-relaxed space-y-4">
+                <p>
+                    The platform providers shall not be liable for any direct, indirect, incidental, 
+                    special, or consequential damages resulting from the use or inability to use this service.
+                </p>
+                <p>
+                    Users acknowledge that this is a demonstration platform and assume all risks associated with its use.
+                </p>
+            </div>
+        </div>
+
+        <!-- Privacy -->
+        <div class="bg-white border border-slate-200 rounded-xl p-8">
+            <h2 class="text-2xl font-light text-slate-900 mb-6">Privacy</h2>
+            <div class="text-slate-600 leading-relaxed">
+                <p>
+                    Our data handling practices are detailed in our Privacy Policy. We collect minimal information 
+                    and generate all phone numbers and messages algorithmically without storing personal data.
+                </p>
+                <div class="mt-4">
+                    <a href="{{ url_for('privacy') }}" class="text-slate-900 hover:text-slate-700 font-medium transition-colors">
+                        Read Privacy Policy →
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Changes to Terms -->
+        <div class="bg-slate-100 border border-slate-200 rounded-xl p-8">
+            <h2 class="text-2xl font-light text-slate-900 mb-6">Changes to Terms</h2>
+            <div class="text-slate-700 leading-relaxed space-y-4">
+                <p>
+                    We may update these terms periodically to reflect changes in the service or legal requirements. 
+                    Continued use of the platform constitutes acceptance of updated terms.
+                </p>
+                <p>
+                    Major changes will be indicated by updating the "Last updated" date at the top of this page.
+                </p>
+            </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="bg-white border border-slate-200 rounded-xl p-8 text-center">
+            <h2 class="text-2xl font-light text-slate-900 mb-4">Questions About Terms?</h2>
+            <p class="text-slate-600 leading-relaxed mb-6">
+                For questions about platform usage or technical documentation, 
+                please refer to our help section.
+            </p>
+            <a href="{{ url_for('help') }}" class="inline-flex items-center space-x-2 bg-slate-900 text-white px-6 py-3 rounded-lg hover:bg-slate-800 transition-colors">
+                <span>View Help Documentation</span>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

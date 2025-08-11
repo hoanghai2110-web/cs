@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block title %}SMS Receiver - Free Virtual Numbers{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="text-center mb-16 hero-section">
+    <h1 class="text-5xl font-light text-slate-900 mb-6 tracking-tight">
+        Free SMS Receiver
+    </h1>
+    <p class="text-xl text-slate-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+        Get virtual phone numbers for SMS verification testing from 100+ countries including USA, UK, Germany, France. Free OTP codes and authentication messages for developers.
+    </p>
+    <div class="bg-slate-100 border border-slate-200 rounded-xl p-6 max-w-3xl mx-auto">
+        <p class="text-slate-700 text-sm leading-relaxed">
+            <span class="font-semibold">Free SMS Testing Platform:</span> Virtual phone numbers and SMS verification messages for developers, QA teams, and businesses. Test OTP codes, banking alerts, and delivery notifications safely. All data is programmatically generated and rotates daily.
+        </p>
+    </div>
+</div>
+
+<!-- Process Steps -->
+<div class="mb-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center">
+            <div class="w-12 h-12 bg-slate-900 text-white rounded-xl flex items-center justify-center mx-auto mb-4 text-lg font-semibold">
+                1
+            </div>
+            <h2 class="font-semibold text-slate-900 mb-2">Choose Country</h2>
+            <p class="text-sm text-slate-600 leading-relaxed">Select from 100+ countries with localized phone number formats</p>
+        </div>
+        <div class="text-center">
+            <div class="w-12 h-12 bg-slate-900 text-white rounded-xl flex items-center justify-center mx-auto mb-4 text-lg font-semibold">
+                2
+            </div>
+            <h3 class="font-semibold text-slate-900 mb-2">Select Number</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">Pick from available virtual phone numbers for your testing needs</p>
+        </div>
+        <div class="text-center">
+            <div class="w-12 h-12 bg-slate-900 text-white rounded-xl flex items-center justify-center mx-auto mb-4 text-lg font-semibold">
+                3
+            </div>
+            <h3 class="font-semibold text-slate-900 mb-2">View Messages</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">Access realistic demo SMS messages including OTP codes and alerts</p>
+        </div>
+    </div>
+</div>
+
+<!-- Countries Grid -->
+<div class="mb-16">
+    <h2 class="text-3xl font-light text-slate-900 mb-8 text-center">Virtual Phone Numbers by Country</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+        {% for country in countries %}
+        <a href="{{ url_for('country', country_code=country.code) }}"
+           class="bg-white border border-slate-200 rounded-xl p-6 card-hover text-center group"
+           aria-label="View virtual numbers for {{ country.name }}">
+            <div class="text-center">
+                        <div class="text-2xl mb-2" role="img" aria-label="{{ country.name }} flag" alt="{{ country.name }} flag emoji">{{ country.flag }}</div>
+                        <div class="text-sm font-medium text-slate-900 mb-1">{{ country.name }}</div>
+                        <div class="text-xs text-slate-500">{{ country.code }}</div>
+                    </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Features Section -->
+<div class="bg-white border border-slate-200 rounded-xl p-8">
+    <h2 class="text-2xl font-light text-slate-900 mb-8 text-center">Why Choose Our Free SMS Receiver</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="text-center">
+            <div class="w-16 h-16 bg-slate-100 rounded-xl flex items-center justify-center mx-auto mb-4" role="img" aria-label="Global coverage icon">
+                <span class="text-2xl" role="img" aria-label="World globe">🌍</span>
+            </div>
+            <h3 class="font-semibold text-slate-900 mb-2">100+ Countries</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">Virtual phone numbers from USA, UK, Germany, France, Canada, Australia and 90+ more countries with authentic local formatting</p>
+        </div>
+        <div class="text-center">
+            <div class="w-16 h-16 bg-slate-100 rounded-xl flex items-center justify-center mx-auto mb-4" role="img" aria-label="Daily updates icon">
+                <span class="text-2xl" role="img" aria-label="Refresh symbol">🔄</span>
+            </div>
+            <h3 class="font-semibold text-slate-900 mb-2">Fresh SMS Daily</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">New virtual phone numbers and SMS verification messages generated daily for consistent testing</p>
+        </div>
+        <div class="text-center">
+            <div class="w-16 h-16 bg-slate-100 rounded-xl flex items-center justify-center mx-auto mb-4" role="img" aria-label="Realistic content icon">
+                <span class="text-2xl" role="img" aria-label="Speech bubble">💬</span>
+            </div>
+            <h3 class="font-semibold text-slate-900 mb-2">Real SMS Templates</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">Authentic SMS verification codes, OTP messages, banking alerts, and delivery notifications for comprehensive testing</p>
+        </div>
+        <div class="text-center">
+            <div class="w-16 h-16 bg-slate-100 rounded-xl flex items-center justify-center mx-auto mb-4" role="img" aria-label="Safe testing icon">
+                <span class="text-2xl" role="img" aria-label="Lock symbol">🔒</span>
+            </div>
+            <h3 class="font-semibold text-slate-900 mb-2">100% Safe & Private</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">Secure SMS testing environment with no real telecommunications networks or personal data involved</p>
+        </div>
+    </div>
+</div>
+
+<!-- SEO Content Section -->
+<div class="mt-12 text-center">
+    <h3 class="text-lg font-semibold text-slate-900 mb-4">Free SMS Receiver for Developers & QA Teams</h3>
+    <p class="text-sm text-slate-600 leading-relaxed max-w-4xl mx-auto">
+        Our free SMS receiver provides virtual phone numbers for comprehensive SMS verification testing. Perfect for developers testing mobile apps, e-commerce platforms, and authentication systems. Get realistic OTP codes, banking alerts, and delivery notifications from 100+ countries including United States, United Kingdom, Germany, France, Canada, and Australia. Test SMS integrations safely without real phone numbers or telecommunications infrastructure.
+    </p>
+</div>
+{% endblock %}
